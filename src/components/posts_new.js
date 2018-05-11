@@ -38,36 +38,37 @@ class PostsNew extends Component {
              <br />
              <br />
                 <div className = "col-md-6 col-md-offset-3">
-                        <Animated animationIn="bounceInLeft" animationInDelay="0" isVisible={true}>
+                        <Animated animationIn="bounceInDown" animationInDelay="0" isVisible={true}>
                             <h3>Enter a new post</h3>
                         </Animated>
                         <br />
                         <br />
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                            <Animated animationIn="bounceInUp" isVisible={true}>
+                            <Animated animationIn="bounceInDown" isVisible={true}>
                                 <Field
                                 label="Title"
                                 name="title"
                                 component={this.renderField}
                                 />
                             </Animated>
-                            <Animated animationIn="bounceInUp" isVisible={true}>
+                            <Animated animationIn="bounceInDown" isVisible={true}>
                                 <Field 
                                 label="Categories"
                                 name="categories"
                                 component={this.renderField}
                                 />
                             </Animated>
-                            <Animated animationIn="bounceInUp" isVisible={true}>
+                            <Animated animationIn="bounceInDown" isVisible={true}>
                                 <Field 
                                 label="Post Content"
                                 name="content"
                                 component={this.renderField}
                                 />
                             </Animated>
-                                
-                                <button type="submit" className="btn btn-primary">Submit</button>&nbsp;
-                                <Link to="/" className="btn btn-danger">Cancel</Link>
+                                <Animated animationIn="bounceInDown" isVisible={true}>
+                                    <button type="submit" className="btn btn-primary">Submit</button> 
+                                    <Link to="/" className="pull-xs-right">Cancel</Link>
+                                </Animated>
                             
                         </form> 
                     </div> 

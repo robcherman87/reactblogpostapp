@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createPost } from '../actions';
+import { Animated } from "react-animated-css";
 
 class PostsNew extends Component {
     renderField(field) {
@@ -32,25 +33,45 @@ class PostsNew extends Component {
         const { handleSubmit } = this.props;
 
         return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Field
-                  label="Title"
-                  name="title"
-                  component={this.renderField}
-                />
-                <Field 
-                  label="Categories"
-                  name="categories"
-                  component={this.renderField}
-                />
-                <Field 
-                  label="Post Content"
-                  name="content"
-                  component={this.renderField}
-                />
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to="/" className="btn btn-danger">Cancel</Link>
-            </form>        
+            <div className = "container">
+             <br />
+             <br />
+             <br />
+                <div className = "col-md-6 col-md-offset-3">
+                        <Animated animationIn="bounceInLeft" animationInDelay="0" isVisible={true}>
+                            <h3>Enter a new post</h3>
+                        </Animated>
+                        <br />
+                        <br />
+                        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                            <Animated animationIn="bounceInUp" isVisible={true}>
+                                <Field
+                                label="Title"
+                                name="title"
+                                component={this.renderField}
+                                />
+                            </Animated>
+                            <Animated animationIn="bounceInUp" isVisible={true}>
+                                <Field 
+                                label="Categories"
+                                name="categories"
+                                component={this.renderField}
+                                />
+                            </Animated>
+                            <Animated animationIn="bounceInUp" isVisible={true}>
+                                <Field 
+                                label="Post Content"
+                                name="content"
+                                component={this.renderField}
+                                />
+                            </Animated>
+                                
+                                <button type="submit" className="btn btn-primary">Submit</button>&nbsp;
+                                <Link to="/" className="btn btn-danger">Cancel</Link>
+                            
+                        </form> 
+                    </div> 
+            </div>      
         );
     }
 }

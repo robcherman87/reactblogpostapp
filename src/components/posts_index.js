@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPosts } from '../actions';
+import { Animated } from "react-animated-css";
 
 class PostsIndex extends Component {
     componentDidMount() {
@@ -23,16 +24,22 @@ class PostsIndex extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container postsIndex">
                 <div className="text-xs-right">
-                    <Link className="btn btn-primary" to="/posts/new">
-                        Add a Post 
-                    </Link>
+                    <Animated animationIn="bounceInDown" animationInDelay="0" isVisible={true}>
+                        <Link className="btn btn-primary" to="/posts/new">
+                            Add a Post &nbsp; <i className="fa fa-plus" />
+                        </Link>
+                    </Animated>
                 </div>
-                <h3>Posts</h3>
-                <ul className="list-group">
-                    {this.renderPosts()}
-                </ul>
+                <Animated animationIn="fadeInDown" animationInDelay="0" isVisible={true}>
+                    <h3>Posts</h3><br />
+                </Animated>
+                    <ul className="list-group">
+                        <Animated animationIn="bounceInLeft" animationInDelay="0" isVisible={true}>
+                            {this.renderPosts()}
+                        </Animated>
+                    </ul>
             </div>
         );
     }
